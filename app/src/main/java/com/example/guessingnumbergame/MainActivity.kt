@@ -7,12 +7,13 @@ import android.widget.Button
 import android.widget.TextView
 import com.google.android.material.textfield.TextInputLayout
 import android.R.attr.x
-
-
+import android.content.Intent
 
 
 class MainActivity : AppCompatActivity() {
     var secretNum: Int = (1..1001).random()
+    var counter: Int = 0
+    var loseOrWin: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,17 +29,26 @@ class MainActivity : AppCompatActivity() {
             val intNum =
                 if (enteredNum.isNullOrEmpty()) 0
                 else Integer.parseInt(enteredNum)
-
+            val newScreenIntent = Intent(this, EndGameActivity::class.java)
             showNumber.text = "($secretNum)"
+            counter++
 
             if (intNum == 0) {
                 showHint.text = "Enter your number"
-            } else if (intNum > secretNum) {
-                showHint.text = "No:) My number is smaller"
-            } else if (intNum < secretNum){
-                showHint.text = "No:) My number is bigger"
-            } else if (intNum == secretNum){
+            } else if (intNum == secretNum) {
                 showHint.text = "YOU ARE RIGHT!"
+                newScreenIntent.putExtra("secretNumber", secretNum)
+                newScreenIntent.putExtra("loseOrWin", loseOrWin)
+                startActivity(newScreenIntent)
+            } else if (counter >= 12){
+                showHint.text = "YOU LOST!"
+                newScreenIntent.putExtra("secretNumber", secretNum)
+                newScreenIntent.putExtra("loseOrWin", !loseOrWin)
+                startActivity(newScreenIntent)
+            } else if (intNum < secretNum){
+                showHint.text = "No:) My number is bigger! ${12-counter} attempts left"
+            } else if (intNum > secretNum){
+                showHint.text = "No:) My number is smaller! ${12-counter} attempts left"
             }
 
         }

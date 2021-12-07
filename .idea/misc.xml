@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/user/AndroidStudioProjects/GuessingNumberGame/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/GuessingNumberGame2screens/app/src/main/res/layout/activity_end_game.xml" value="0.17844202898550723" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/GuessingNumberGame2screens/app/src/main/res/layout/activity_end_game_lost.xml" value="0.264" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/GuessingNumberGame2screens/app/src/main/res/layout/activity_main.xml" value="0.23052536231884058" />
       </map>
     </option>
   </component>

@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GuessingNumberGame">
         <activity
+            android:name=".EndGameActivityLost"
+            android:exported="false" />
+        <activity
+            android:name=".EndGameActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
